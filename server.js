@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 
+route(app);
 
 
 app.use(function(req, res, next) {
