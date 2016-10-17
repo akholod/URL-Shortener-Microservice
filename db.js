@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://akholod:3v1a6l0e0r2a@ds011785.mlab.com:11785/fcc');
+const config = require("./config");
+const dbConectParameter = config.get('db');
+mongoose.connect(dbConectParameter);
 
 var db = mongoose.connection;
 
