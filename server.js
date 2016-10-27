@@ -1,14 +1,12 @@
 const express = require("express");
-const route = require("./routes");
+const routes = require("./routes");
 const config = require("./config");
 const db = require("./db");
 const port = config.get('port');
 
 const app = express();
 
-
-route(app);
-
+app.use('/', routes);
 
 app.use(function(req, res) {
   res.status(404).send('Not found');
