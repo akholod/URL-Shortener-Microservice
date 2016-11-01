@@ -22,3 +22,5 @@ Usage:
 Will redirect you to:
 
     https://twitter.com/
+
+Check it https://ms-url-short.herokuapp.com/
