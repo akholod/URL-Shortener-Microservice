@@ -14,13 +14,14 @@ router.get('/new/:url(*)', (req, res) => {
     var par = (req.param('url'));
     
     if(par.search(/^(https?:\/\/)?([\w\.]+)\.([a-z]{2,6}\.?)(\/[\w\.]*)*\/?/) == -1) {
-        res.end(JSON.stringify({"Error":"Incorect url format or adress, please pass corect url"}));
+        res.status(400).json({"Error":"Incorect url format or adress, please pass corect url"});
         return console.log('error');
     }
     
    dbModel.findOne({"url": par}, (err, url) => {
         if (err){
-           return console.error(err);
+            res.status(5000).json({"Error":"Database error"});
+            return console.error(err);
         } 
         if (url) {
             res.send(JSON.stringify({
